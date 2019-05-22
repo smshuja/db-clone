@@ -1,4 +1,5 @@
 require 'yaml'
+require 'erb'
 
 require 'db/clone/cmd_builder.rb'
 require 'db/clone/cmd_prompt.rb'
