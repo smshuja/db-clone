@@ -8,7 +8,7 @@ module Db
       end
 
       def initialize
-        @db_yml = YAML.load_file Db::Clone.database_yml_path
+        @db_yml = YAML.load ERB.new(File.read(Db::Clone.database_yml_path)).result
         raise ArgumentError.new("#{Db::Clone.database_yml_path} does not have at least 2 database blocks.") unless @db_yml.length >= 2
 
         @default_src = Db::Clone.default_source_database
